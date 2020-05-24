@@ -19,8 +19,7 @@ class WegliTests: XCTestCase {
     }
 
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssertEqual("Hello World!".count, 1)
     }
 
     func testPerformanceExample() throws {
