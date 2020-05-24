@@ -1,8 +1,6 @@
 name: CI
 
 on:
-  push:
-    branches: [ master ]
   pull_request:
     branches: [ develop ]
 
@@ -15,15 +13,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: Cache RubyGems
-      uses: actions/cache@v
-      with:
-        path: vendor/bundle
-        key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
-        restore-keys: ${{ runner.os }}-gem-
-
-    - name: Install dependencies
-      run: gem install bundler && cd Wegli && bundle install && pod install
+    # Install dependencies
+    - name: Bundle install
+      run: cd Wegli && bundle install
+    - name: Install Pods
+      run: pod install
 
     - name: Run tests
       run: bundle exec fastlane test
