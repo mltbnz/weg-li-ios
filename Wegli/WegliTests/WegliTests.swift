@@ -18,10 +18,6 @@ class WegliTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        XCTAssertEqual("Hello World!".count, 1)
-    }
-
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         measure {
